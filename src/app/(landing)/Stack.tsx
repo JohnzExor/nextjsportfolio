@@ -47,8 +47,11 @@ const Stack = () => {
     <div id="stack">
       <h1 className=" font-semibold text-4xl mb-4">TechStack</h1>
       <div className=" flex flex-col gap-4">
-        {tech.map(({ name, description, icon }) => (
-          <div className="flex items-center gap-6 border p-3 rounded-xl">
+        {tech.map(({ name, description, icon }, index) => (
+          <div
+            key={index}
+            className="flex items-center gap-6 border p-3 rounded-xl"
+          >
             <div>{icon}</div>
             <div>
               <h1 className="text-xl font-medium">{name}</h1>
