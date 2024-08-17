@@ -44,7 +44,7 @@ const navigations = [
 
 const SideBar = ({ onClick }: { onClick: () => void }) => {
   return (
-    <div className="flex flex-col gap-8 font-semibold text-4xl z-10">
+    <div className="flex flex-col gap-8 font-semibold text-4xl z-50">
       {navigations.map(({ link, name, text, icon }, index) => (
         <Link
           onClick={() => onClick()}
