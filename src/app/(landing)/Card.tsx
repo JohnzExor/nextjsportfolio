@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const Card = () => {
@@ -18,17 +17,27 @@ const Card = () => {
     };
   }, []);
 
-  const height = scrollY >= 400 ? 100 : 500 - scrollY;
-  const top = scrollY >= 200 ? 0 : 60 - scrollY / 5;
+  const height = scrollY >= 220 ? 390 : 500 - scrollY / 2;
+  const top = scrollY >= 220 ? 0 : 45 - scrollY / 5;
+  const textTop =
+    scrollY <= 0
+      ? 16
+      : scrollY / 4 >= 16
+      ? scrollY >= 10
+        ? scrollY / 2
+        : scrollY / 4
+      : 16;
 
   return (
-    <div className=" fixed w-full -z-20">
-      <motion.div
-        initial={{ height: 500, top: 60 }}
-        animate={{ height: height, top: top }}
-        className="relative w-full flex flex-col"
+    <div className=" fixed w-full -z-30">
+      <div
+        style={{ height: `${height}px`, top: `${top}px` }}
+        className={`relative w-full flex flex-col`}
       >
-        <div className="mt-auto m-4 text-white">
+        <div
+          style={{ marginBottom: `${textTop}px` }}
+          className="mt-auto m-4 text-white"
+        >
           <h1 className="text-4xl font-medium">Johnzyll Jimeno</h1>
           <p>Full Stack Developer</p>
         </div>
@@ -36,9 +45,9 @@ const Card = () => {
           src={"/images/profile.jpg"}
           alt="profile"
           fill
-          className=" object-cover -z-50 rounded-xl"
+          className=" object-cover -z-50 rounded-b-xl"
         />
-      </motion.div>
+      </div>
     </div>
   );
 };
